@@ -18,12 +18,23 @@ public class BasicBuffer {
             intBuffer.put(i + 1);
         }
 
+        System.out.println("intBuffer.capacity(): " + intBuffer.capacity());
+        System.out.println("intBuffer.position(): " + intBuffer.position());
+
         //如何从buffer读取数据
         //将buffer转换，读写切换
         intBuffer.flip();
+        intBuffer.position(1);
+        intBuffer.limit(3);
+        System.out.println("intBuffer.capacity(): " + intBuffer.capacity());
+        System.out.println("intBuffer.position(): " + intBuffer.position());
         while (intBuffer.hasRemaining()) {
             System.out.println(intBuffer.get());
         }
 
+        intBuffer.clear();
+        while (intBuffer.hasRemaining()) {
+            System.out.println(intBuffer.get());
+        }
     }
 }
